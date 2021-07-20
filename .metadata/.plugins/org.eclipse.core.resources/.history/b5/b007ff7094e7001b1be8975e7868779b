@@ -1,0 +1,33 @@
+package com.revature.rest.emp.controllers;
+
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.rest.emp.dao.PersonDAO;
+import com.revature.rest.emp.dao.PersonDAOImpl;
+import com.revature.rest.emp.model.Person;
+
+@Path("personapi")
+public class PersonController {
+
+	@GET
+	@Path("/persons")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String GetJson() {
+		ObjectMapper mapper = new ObjectMapper();
+		PersonDAO personDao= new PersonDAOImpl();
+		List<Person> pList=personDao.getPersons();
+		try {
+			return mapper.writeValueAsString(pList);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			return e.getMessage();
+		}
+	}
+}

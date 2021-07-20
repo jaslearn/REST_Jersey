@@ -1,0 +1,21 @@
+package com.revature.rest.restdemo.client;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+public class RestClient {
+public static void main(String[] args) {
+	String URI="http://localhost:8080/02restdemo/webapi/myresource";
+	Client client = ClientBuilder.newClient();
+	WebTarget target 
+	  = client.target(URI);
+	String response = target.path("/").
+            request().
+            accept(MediaType.TEXT_PLAIN).
+            get(Response.class)
+            .toString();
+}
+}

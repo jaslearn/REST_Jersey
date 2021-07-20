@@ -1,0 +1,36 @@
+package com.revature.rest;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+@Path("/my")
+public class MyController {
+	
+	
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public String sayHi() {
+		return "Hiiii from My Controller";
+	}
+
+	public String getJson() {
+		
+		Employee emp=new Employee(1,"Abhishek");
+		
+		ObjectMapper obj=new ObjectMapper();
+		
+		try {
+			return obj.writeValueAsString(emp);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			return e.getMessage();
+		}
+		
+	}
+}

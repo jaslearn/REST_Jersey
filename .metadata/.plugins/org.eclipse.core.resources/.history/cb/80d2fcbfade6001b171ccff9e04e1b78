@@ -1,0 +1,5 @@
+db.url=database-1.cyxwbmqwxsuz.us-east-2.rds.amazonaws.com
+db.port=5432
+db.database=dvdrental
+db.user=postgres
+db.password=postgres123

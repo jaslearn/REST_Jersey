@@ -1,0 +1,11 @@
+package com.revature.rest.restdemo.client;
+
+import com.sun.jersey.api.client.Client;
+
+public class RestClient {
+public static void main(String[] args) {
+	String URI="http://localhost:8080/02restdemo/webapi/myresource";
+	
+	
+}
+}

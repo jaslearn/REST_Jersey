@@ -1,0 +1,20 @@
+package com.revature.rest.client;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+
+public class RestClient {
+public static void main(String[] args) {
+	String URI="http://localhost:8080/03restapp/webapi";
+	Client client = ClientBuilder.newClient();
+	WebTarget target  = client.target(URI);
+	String response = target.path("my").
+            request().
+            accept(MediaType.TEXT_PLAIN).
+            get(String.class);
+           
+	System.out.println("Response :::: "+ response);
+}
+}

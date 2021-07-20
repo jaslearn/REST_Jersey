@@ -1,0 +1,9 @@
+package com.revature.rest;
+
+public class Employee {
+private int id;
+private String name;
+
+
+
+}

@@ -1,0 +1,29 @@
+package com.revature.rest.client;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+
+import com.revature.rest.Employee;
+
+public class RestClient {
+public static void main(String[] args) {
+	String URI="http://localhost:8080/03restapp/webapi";
+	
+	Client client = ClientBuilder.newClient();
+	WebTarget target  = client.target(URI);
+	
+	String response = target.path("my"). /// "http://localhost:8080/03restapp/webapi/my
+            request().
+            accept(MediaType.TEXT_PLAIN).
+            get(String.class);
+           
+	System.out.println("Response :::: "+ response.toUpperCase());
+	
+	
+	
+	String jsonData=target.path("my").path("json").request().accept(MediaType.APPLICATION_JSON).get(Employee.class).toString();
+	System.out.println("JSON Data :::::::: " +jsonData );
+}
+}

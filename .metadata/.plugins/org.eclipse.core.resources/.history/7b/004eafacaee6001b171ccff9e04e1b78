@@ -1,0 +1,20 @@
+package com.revature.rest.emp.model;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@RequiredArgsConstructor
+@ToString
+public class Person {
+
+	private int id;
+private String name;
+private int age;
+
+}

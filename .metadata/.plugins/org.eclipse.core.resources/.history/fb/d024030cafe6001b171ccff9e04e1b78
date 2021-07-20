@@ -1,0 +1,10 @@
+package com.revature.rest.emp.testcode;
+
+import com.revature.rest.emp.model.Person;
+
+public class Test {
+public static void main(String[] args) {
+	Person p=new Person(1,"Jas",22);
+	System.out.println(p);
+}
+}

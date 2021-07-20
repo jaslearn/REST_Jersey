@@ -1,0 +1,59 @@
+package com.revature.rest.emp.dao;
+
+
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.revature.rest.emp.model.Person;
+import com.revature.rest.emp.utils.ConnectionUtils;
+
+
+public class PersonDAOImpl implements PersonDAO {
+
+	@Override
+	public List<Person> getPersons() {
+		
+		
+		Person person=null;
+		List<Person> personList = new ArrayList<Person>();
+		Connection conn=null;
+		
+		 try {
+			conn=ConnectionUtils.getConnection();
+			 
+			Statement stmt=conn.createStatement();
+			String queryActor="Select * from person";
+			ResultSet rs=stmt.executeQuery(queryActor);
+			
+			while(rs.next()) {
+				 person=new Person();
+				person.setId(rs.getInt(1));
+				person.setName(rs.getString("name"));
+				person.setAge(rs.getInt("age"));
+				personList.add(person);
+						
+			}
+			
+			// STEP 5: Clean Up
+			stmt.close();
+			conn.close();
+			
+		}  catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return personList;
+	}
+
+	@Override
+	public Person getPerson() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.revature.rest.restdemo.client;
+
+public class RestClient {
+
+}
